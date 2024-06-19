@@ -1,7 +1,12 @@
 <?php
+
+require_once 'webadmin/classes/functions.php';
+
 $page_title = "Job Listings";
 include_once 'page-components/header.php';
 include_once 'page-components/main-header.php';
+
+$allJobListings = $jobListing->getJobsListingsStatus();
 ?>
 
 <!-- Banner Section-->
@@ -273,226 +278,38 @@ include_once 'page-components/main-header.php';
                         </div>
                     </div>
 
+                    <?php
+                    if ($allJobListings != null) {
+                        foreach ($allJobListings as $jobListing) {
+                    ?>
 
-                    <!-- Job Block -->
-                    <div class="job-block">
-                        <div class="inner-box">
-                            <div class="content">
-                                <span class="company-logo"><img src="images/resource/company-logo/1-1.png" alt=""></span>
-                                <h4><a href="#">Software Engineer (Android), Libraries</a></h4>
-                                <ul class="job-info">
-                                    <li><span class="icon flaticon-briefcase"></span> Segment</li>
-                                    <li><span class="icon flaticon-map-locator"></span> London, UK</li>
-                                    <li><span class="icon flaticon-clock-3"></span> 11 hours ago</li>
-                                    <li><span class="icon flaticon-money"></span> $35k - $45k</li>
-                                </ul>
-                                <ul class="job-other-info">
-                                    <li class="time">Full Time</li>
-                                    <li class="privacy">Private</li>
-                                    <li class="required">Urgent</li>
-                                </ul>
-                                <button class="bookmark-btn"><span class="flaticon-bookmark"></span></button>
+                            <!-- Job Block -->
+                            <div class="job-block">
+                                <div class="inner-box">
+                                    <div class="content">
+                                        <span class="company-logo"><img src="webadmin/images/job-listings/<?= $jobListing['image'] ?? 'default.png' ?>" alt="<?= $jobListing['title'] ?>"></span>
+                                        <h4><a href="job-description.php?devJob=<?= $jobListing['slug'] ?>"><?= $jobListing['title'] ?></a></h4>
+                                        <ul class="job-info">
+                                            <li><span class="icon flaticon-briefcase"></span> <?= $jobListing['career_level'] ?></li>
+                                            <li><span class="icon flaticon-map-locator"></span> <?= $jobListing['location'] ?></li>
+                                            <li><span class="icon flaticon-clock-3"></span> 11 hours ago</li>
+                                            <?php if ($jobListing['salary'] != '0') : ?>
+                                                <li><span class="icon flaticon-money"></span> $<?= $jobListing['salary'] ?></li>
+                                            <?php endif; ?>
+                                        </ul>
+                                        <ul class="job-other-info">
+                                            <li class="time"><?= $jobListing['job_type'] ?></li>
+                                            <!-- <li class="privacy">Private</li>
+                                            <li class="required">Urgent</li> -->
+                                        </ul>
+                                        <button class="bookmark-btn"><span class="flaticon-bookmark"></span></button>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-
-                    <!-- Job Block -->
-                    <div class="job-block">
-                        <div class="inner-box">
-                            <div class="content">
-                                <span class="company-logo"><img src="images/resource/company-logo/1-2.png" alt=""></span>
-                                <h4><a href="#">Recruiting Coordinator</a></h4>
-                                <ul class="job-info">
-                                    <li><span class="icon flaticon-briefcase"></span> Segment</li>
-                                    <li><span class="icon flaticon-map-locator"></span> London, UK</li>
-                                    <li><span class="icon flaticon-clock-3"></span> 11 hours ago</li>
-                                    <li><span class="icon flaticon-money"></span> $35k - $45k</li>
-                                </ul>
-                                <ul class="job-other-info">
-                                    <li class="time">Full Time</li>
-                                    <li class="privacy">Private</li>
-                                    <li class="required">Urgent</li>
-                                </ul>
-                                <button class="bookmark-btn"><span class="flaticon-bookmark"></span></button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Job Block -->
-                    <div class="job-block">
-                        <div class="inner-box">
-                            <div class="content">
-                                <span class="company-logo"><img src="images/resource/company-logo/1-3.png" alt=""></span>
-                                <h4><a href="#">Product Manager, Studio</a></h4>
-                                <ul class="job-info">
-                                    <li><span class="icon flaticon-briefcase"></span> Segment</li>
-                                    <li><span class="icon flaticon-map-locator"></span> London, UK</li>
-                                    <li><span class="icon flaticon-clock-3"></span> 11 hours ago</li>
-                                    <li><span class="icon flaticon-money"></span> $35k - $45k</li>
-                                </ul>
-                                <ul class="job-other-info">
-                                    <li class="time">Full Time</li>
-                                    <li class="privacy">Private</li>
-                                    <li class="required">Urgent</li>
-                                </ul>
-                                <button class="bookmark-btn"><span class="flaticon-bookmark"></span></button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Job Block -->
-                    <div class="job-block">
-                        <div class="inner-box">
-                            <div class="content">
-                                <span class="company-logo"><img src="images/resource/company-logo/1-4.png" alt=""></span>
-                                <h4><a href="#">Senior Product Designer</a></h4>
-                                <ul class="job-info">
-                                    <li><span class="icon flaticon-briefcase"></span> Segment</li>
-                                    <li><span class="icon flaticon-map-locator"></span> London, UK</li>
-                                    <li><span class="icon flaticon-clock-3"></span> 11 hours ago</li>
-                                    <li><span class="icon flaticon-money"></span> $35k - $45k</li>
-                                </ul>
-                                <ul class="job-other-info">
-                                    <li class="time">Full Time</li>
-                                    <li class="privacy">Private</li>
-                                    <li class="required">Urgent</li>
-                                </ul>
-                                <button class="bookmark-btn"><span class="flaticon-bookmark"></span></button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Job Block -->
-                    <div class="job-block">
-                        <div class="inner-box">
-                            <div class="content">
-                                <span class="company-logo"><img src="images/resource/company-logo/1-5.png" alt=""></span>
-                                <h4><a href="#">Senior Full Stack Engineer, Creator Success</a></h4>
-                                <ul class="job-info">
-                                    <li><span class="icon flaticon-briefcase"></span> Segment</li>
-                                    <li><span class="icon flaticon-map-locator"></span> London, UK</li>
-                                    <li><span class="icon flaticon-clock-3"></span> 11 hours ago</li>
-                                    <li><span class="icon flaticon-money"></span> $35k - $45k</li>
-                                </ul>
-                                <ul class="job-other-info">
-                                    <li class="time">Full Time</li>
-                                    <li class="privacy">Private</li>
-                                    <li class="required">Urgent</li>
-                                </ul>
-                                <button class="bookmark-btn"><span class="flaticon-bookmark"></span></button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Job Block -->
-                    <div class="job-block">
-                        <div class="inner-box">
-                            <div class="content">
-                                <span class="company-logo"><img src="images/resource/company-logo/1-6.png" alt=""></span>
-                                <h4><a href="#">Software Engineer (Android), Libraries</a></h4>
-                                <ul class="job-info">
-                                    <li><span class="icon flaticon-briefcase"></span> Segment</li>
-                                    <li><span class="icon flaticon-map-locator"></span> London, UK</li>
-                                    <li><span class="icon flaticon-clock-3"></span> 11 hours ago</li>
-                                    <li><span class="icon flaticon-money"></span> $35k - $45k</li>
-                                </ul>
-                                <ul class="job-other-info">
-                                    <li class="time">Full Time</li>
-                                    <li class="privacy">Private</li>
-                                    <li class="required">Urgent</li>
-                                </ul>
-                                <button class="bookmark-btn"><span class="flaticon-bookmark"></span></button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Job Block -->
-                    <div class="job-block">
-                        <div class="inner-box">
-                            <div class="content">
-                                <span class="company-logo"><img src="images/resource/company-logo/1-7.png" alt=""></span>
-                                <h4><a href="#">Software Engineer (Android), Libraries</a></h4>
-                                <ul class="job-info">
-                                    <li><span class="icon flaticon-briefcase"></span> Segment</li>
-                                    <li><span class="icon flaticon-map-locator"></span> London, UK</li>
-                                    <li><span class="icon flaticon-clock-3"></span> 11 hours ago</li>
-                                    <li><span class="icon flaticon-money"></span> $35k - $45k</li>
-                                </ul>
-                                <ul class="job-other-info">
-                                    <li class="time">Full Time</li>
-                                    <li class="privacy">Private</li>
-                                    <li class="required">Urgent</li>
-                                </ul>
-                                <button class="bookmark-btn"><span class="flaticon-bookmark"></span></button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Job Block -->
-                    <div class="job-block">
-                        <div class="inner-box">
-                            <div class="content">
-                                <span class="company-logo"><img src="images/resource/company-logo/1-8.png" alt=""></span>
-                                <h4><a href="#">Recruiting Coordinator</a></h4>
-                                <ul class="job-info">
-                                    <li><span class="icon flaticon-briefcase"></span> Segment</li>
-                                    <li><span class="icon flaticon-map-locator"></span> London, UK</li>
-                                    <li><span class="icon flaticon-clock-3"></span> 11 hours ago</li>
-                                    <li><span class="icon flaticon-money"></span> $35k - $45k</li>
-                                </ul>
-                                <ul class="job-other-info">
-                                    <li class="time">Full Time</li>
-                                    <li class="privacy">Private</li>
-                                    <li class="required">Urgent</li>
-                                </ul>
-                                <button class="bookmark-btn"><span class="flaticon-bookmark"></span></button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Job Block -->
-                    <div class="job-block">
-                        <div class="inner-box">
-                            <div class="content">
-                                <span class="company-logo"><img src="images/resource/company-logo/1-9.png" alt=""></span>
-                                <h4><a href="#">Product Manager, Studio</a></h4>
-                                <ul class="job-info">
-                                    <li><span class="icon flaticon-briefcase"></span> Segment</li>
-                                    <li><span class="icon flaticon-map-locator"></span> London, UK</li>
-                                    <li><span class="icon flaticon-clock-3"></span> 11 hours ago</li>
-                                    <li><span class="icon flaticon-money"></span> $35k - $45k</li>
-                                </ul>
-                                <ul class="job-other-info">
-                                    <li class="time">Full Time</li>
-                                    <li class="privacy">Private</li>
-                                    <li class="required">Urgent</li>
-                                </ul>
-                                <button class="bookmark-btn"><span class="flaticon-bookmark"></span></button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Job Block -->
-                    <div class="job-block">
-                        <div class="inner-box">
-                            <div class="content">
-                                <span class="company-logo"><img src="images/resource/company-logo/1-1.png" alt=""></span>
-                                <h4><a href="#">Senior Product Designer</a></h4>
-                                <ul class="job-info">
-                                    <li><span class="icon flaticon-briefcase"></span> Segment</li>
-                                    <li><span class="icon flaticon-map-locator"></span> London, UK</li>
-                                    <li><span class="icon flaticon-clock-3"></span> 11 hours ago</li>
-                                    <li><span class="icon flaticon-money"></span> $35k - $45k</li>
-                                </ul>
-                                <ul class="job-other-info">
-                                    <li class="time">Full Time</li>
-                                    <li class="privacy">Private</li>
-                                    <li class="required">Urgent</li>
-                                </ul>
-                                <button class="bookmark-btn"><span class="flaticon-bookmark"></span></button>
-                            </div>
-                        </div>
-                    </div>
+                    <?php
+                        }
+                    }
+                    ?>
 
 
                     <!-- Listing Show More -->

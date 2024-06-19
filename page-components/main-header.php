@@ -21,7 +21,7 @@
                         </li>
 
                         <li class="">
-                            <a href="job-list.php">Find Jobs</a>
+                            <a href="job-listings.php">Find Jobs</a>
                         </li>
 
                         <!-- <li class="dropdown has-mega-menu" id="has-mega-menu">

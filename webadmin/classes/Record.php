@@ -39,6 +39,21 @@ class Record
         }
     }
 
+    public function getRecordByColumnParam($table, $columnName, $record)
+    {
+        $sql = "SELECT * FROM $table WHERE $columnName=?";
+        $statement = $this->db->prepare($sql);
+        $statement->bindParam(1, $record, PDO::PARAM_STR);
+        $statement->execute();
+        $result = $statement->fetch(PDO::FETCH_ASSOC);
+
+        if ($result != null) {
+            return $result;
+        } else {
+            return $result = null;
+        }
+    }
+
     public function getRecordByColumnAndId($table, $columnName, $id, $record)
     {
         $sql = "SELECT * FROM $table WHERE id=? AND $columnName=?";

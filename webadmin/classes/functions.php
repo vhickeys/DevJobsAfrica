@@ -177,8 +177,9 @@ function authRoleCheckJobUser($role, $redirectPage1, $redirectPage2, $message)
 
 function pageCheckBySlug($slug, $page)
 {
-    if (!isset($slug) || ($slug == "")) {
-        $_SESSION['errorMessage'] = "You are not authorized to access this page! No ID Found.";
+    global $jobListing;
+    if (!isset($slug) || ($slug == "") || ($jobListing->getJobContent($slug) == null)) {
+        $_SESSION['errorMessage'] = "You are not authorized to access this page!";
         header("location: $page.php");
         exit(0);
     }

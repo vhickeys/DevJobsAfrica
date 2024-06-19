@@ -1,7 +1,15 @@
 <?php
+
+require_once 'webadmin/classes/functions.php';
+pageCheckBySlug($_GET['devJob'], 'index');
+$devJob = $_GET['devJob'];
+
 $page_title = "Job Description";
 include_once 'page-components/header.php';
 include_once 'page-components/main-header.php';
+
+$jobContent = $jobListing->getJobContent($devJob);
+
 ?>
 
 <!-- Job Detail Section -->
@@ -39,7 +47,7 @@ include_once 'page-components/main-header.php';
                         <div class="text-lg-end">
                             <div class="titles mb-3 mb-sm-0">
                                 <h4 class="fz20 fw500 mb-1">Application Ends</h4>
-                                <p class="text mb15">May 18, 2026</p>
+                                <p class="text mb15"><?= date('d M, Y', strtotime($jobContent['deadline'])) ?></p>
                             </div>
                             <div class="btn-box justify-content-lg-end mb-0">
                                 <a href="#" class="theme-btn btn-style-one w-100">Apply For Job <i class="fal fa-long-arrow-right ms-3"></i></a>
@@ -57,7 +65,10 @@ include_once 'page-components/main-header.php';
                 <div class="content-column col-lg-8 col-md-12 col-sm-12">
                     <div class="job-detail">
                         <h4 class="fz30 fw500">Description</h4>
-                        <p class="text">As a Product Designer, you will work within a Product Delivery Team fused with UX, engineering, product and data talent. You will help the team design beautiful interfaces that solve business challenges for our clients. We work with a number of Tier 1 banks on building web-based applications for AML, KYC and Sanctions List management workflows. This role is ideal if you are looking to segue your career into the FinTech or Big Data arenas.</p>
+                        
+                        <?= $jobContent['description'] ?>
+
+                        <!-- <p class="text">As a Product Designer, you will work within a Product Delivery Team fused with UX, engineering, product and data talent. You will help the team design beautiful interfaces that solve business challenges for our clients. We work with a number of Tier 1 banks on building web-based applications for AML, KYC and Sanctions List management workflows. This role is ideal if you are looking to segue your career into the FinTech or Big Data arenas.</p>
                         <h4>Key Responsibilities</h4>
                         <ul class="list-style-three">
                             <li class="dark-color">Be involved in every step of the product design cycle from discovery to developer handoff and user acceptance testing.</li>
@@ -75,7 +86,7 @@ include_once 'page-components/main-header.php';
                             <li class="dark-color">You have experience using Sketch and InVision or Framer X</li>
                             <li class="dark-color">You have some previous experience working in an agile environment – Think two-week sprints.</li>
                             <li class="dark-color">You are familiar using Jira and Confluence in your workflow</li>
-                        </ul>
+                        </ul> -->
                     </div>
                     <hr class="opacity-100">
 
@@ -96,7 +107,7 @@ include_once 'page-components/main-header.php';
                         <div class="d-sm-flex justify-content-sm-between">
                             <div class="titles mb-3 mb-sm-0">
                                 <h4 class="fz20 fw500">Application ends</h4>
-                                <p class="text">May 18, 2026</p>
+                                <p class="text"><?= date('d M, Y', strtotime($jobContent['deadline'])) ?></p>
                             </div>
                             <div class="btn-box mb-0">
                                 <a href="#" class="theme-btn btn-style-one">Apply For Job <i class="fal fa-long-arrow-right ms-3"></i></a>
