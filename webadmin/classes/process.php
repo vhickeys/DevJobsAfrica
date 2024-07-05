@@ -14,6 +14,32 @@ if (isset($_GET['action'])) {
             }
             break;
 
+        case 'getJobListings':
+            if (isset($_POST) == 'jobListings') {
+                $output = "";
+                $jobListings = $jobListing->getJobsListingsStatus();
+                showJobs($jobListings, $output);
+            }
+            break;
+
+        case 'searchJobListings':
+            if (isset($_POST['action']) == 'jobListingSearch') {
+                $output = "";
+                $search = $_POST['jobSearch'];
+                $jobListings = $jobListing->getJobsbySearch($search);
+                showJobs($jobListings, $output);
+            }
+            break;
+
+        case 'searchJobLocation':
+            if (isset($_POST['action']) == 'jobListingLocation') {
+                $output = "";
+                $jobLocation = $_POST['jobLocation'];
+                $jobListings = $jobListing->getJobsbyLocation($jobLocation);
+                showJobs($jobListings, $output);
+            }
+            break;
+
         case 'registerConsultant':
             if (isset($_POST)) {
                 $fullname = $_POST['fullname'];
@@ -105,7 +131,6 @@ if (isset($_GET['action'])) {
                 $status = $_POST['status'] == true ? '1' : '0';
 
                 $jobListing->createJobListing($sector_id, $title, $slug, $caption, $description, $company, $salary, $image, $job_type, $career_level, $education_level, $years_of_experience, $location, $deadline, $status);
-
             }
             break;
 

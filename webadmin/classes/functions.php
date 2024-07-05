@@ -175,6 +175,21 @@ function authRoleCheckJobUser($role, $redirectPage1, $redirectPage2, $message)
 
 // End Job Dashboard Authorization Checks
 
+function regPageAuth($slug, $page)
+{
+    $array = [
+        'consultant',
+        'employer',
+        'jobSeeker'
+    ];
+
+    if (!isset($slug) || ($slug == "") || !in_array($slug, $array)) {
+        $_SESSION['errorMessage'] = "You are not authorized to access this page!";
+        header("location: $page.php");
+        exit(0);
+    }
+}
+
 function pageCheckBySlug($slug, $page)
 {
     global $jobListing;
@@ -183,6 +198,60 @@ function pageCheckBySlug($slug, $page)
         header("location: $page.php");
         exit(0);
     }
+}
+
+function showJobs($jobListings, $output)
+{
+    if ($jobListings != null) {
+
+        foreach ($jobListings as $jobListing) {
+
+            $jobImage = $jobListing['image'] ?? 'default.png';
+            $jobTitle = $jobListing['title'];
+            $jobSlug = $jobListing['slug'];
+            $jobCareerLevel = $jobListing['career_level'];
+            $jobLocation = $jobListing['location'];
+            $jobSalary = $jobListing['salary'];
+            $jobType = $jobListing['job_type'];
+
+            $output .= <<<jobs
+                
+                <div class="inner-box mb-4">
+                    <div class="content">
+                        <span class="company-logo"><img src="webadmin/images/job-listings/$jobImage" alt="$jobTitle"></span>
+                        <h4><a href="job-description.php?devJob=$jobSlug">$jobTitle</a></h4>
+                        <ul class="job-info">
+                            <li><span class="icon flaticon-briefcase"></span>$jobCareerLevel</li>
+                            <li><span class="icon flaticon-map-locator"></span>$jobLocation</li>
+                            <li><span class="icon flaticon-clock-3"></span> 11 hours ago</li>
+                            <li><span class="icon flaticon-money"></span> $$jobSalary</li>
+                        </ul>
+                        <ul class="job-other-info">
+                            <li class="time">$jobType</li>
+                            <!-- <li class="privacy">Private</li>
+                            <li class="required">Urgent</li> -->
+                        </ul>
+                        <button class="bookmark-btn"><span class="flaticon-bookmark"></span></button>
+                    </div>
+                </div>
+
+            jobs;
+        }
+    } else {
+        $output = <<<jobs
+
+                <div class="job-block">
+                    <div class="inner-box">
+                        <div class="content">
+                            <h4>No Job Listing Found!</h4>
+                        </div>
+                    </div>
+                </div>
+
+            jobs;
+    }
+
+    echo $output;
 }
 
 

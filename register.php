@@ -1,7 +1,7 @@
 <?php
 require_once 'webadmin/classes/functions.php';
 
-pageCheckBySlug($_GET['jobCategory'], 'index');
+regPageAuth($_GET['jobCategory'], 'index');
 
 $page_title = "Register";
 include_once 'page-components/header.php';
@@ -25,7 +25,7 @@ include_once 'page-components/header.php';
                 <!-- Login/Register -->
                 <div class="btn-box">
                     <a href="index.php" class="theme-btn btn-style-three call-modal">Home</a>
-                    <a href="job-list.php" class="theme-btn btn-style-one"><span class="btn-title">Find Jobs</span></a>
+                    <a href="job-listings.php" class="theme-btn btn-style-one"><span class="btn-title">Find Jobs</span></a>
                 </div>
             </div>
         </div>

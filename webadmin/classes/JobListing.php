@@ -143,9 +143,49 @@ class JobListing
         s.name AS sector_name,
         s.status AS sector_status
         FROM jobs j INNER JOIN
-        sectors s ON j.sector_id = s.id WHERE s.status=0 AND j.status=0 ORDER BY date DESC";
+        sectors s ON j.sector_id = s.id WHERE s.status=0 AND j.status=0 ORDER BY j.date DESC";
         $statement = $this->db->prepare($sql);
         $statement->execute();
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        if ($result != null) {
+            return $result;
+        } else {
+            return $result = null;
+        }
+    }
+
+    public function getJobsbySearch($searchTitle)
+    {
+        $title = "%$searchTitle%";
+        $sql = "SELECT
+        j.*,
+        s.name AS sector_name,
+        s.status AS sector_status
+        FROM jobs j INNER JOIN
+        sectors s ON j.sector_id = s.id WHERE j.title LIKE ? AND s.status=0 AND j.status=0 ORDER BY j.date DESC";
+        $statement = $this->db->prepare($sql);
+        $statement->execute([$title]);
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        if ($result != null) {
+            return $result;
+        } else {
+            return $result = null;
+        }
+    }
+
+    public function getJobsbyLocation($searchLocation)
+    {
+        $location = "%$searchLocation%";
+        $sql = "SELECT
+        j.*,
+        s.name AS sector_name,
+        s.status AS sector_status
+        FROM jobs j INNER JOIN
+        sectors s ON j.sector_id = s.id WHERE j.location LIKE ? AND s.status=0 AND j.status=0 ORDER BY j.date DESC";
+        $statement = $this->db->prepare($sql);
+        $statement->execute([$location]);
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
         if ($result != null) {

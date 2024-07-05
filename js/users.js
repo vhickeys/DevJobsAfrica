@@ -5,6 +5,10 @@ $(document).ready(function () {
   $("#jobLoginAlert").hide();
   $(".spinner").hide();
 
+  getJobsListings();
+
+  // Display Jobs
+
   // Register Consultant
 
   $("#regConsultant").click(function (e) {
@@ -328,6 +332,46 @@ $(document).ready(function () {
     }
   });
 
+  $('#jobSearch').keyup(function (e) { 
+    e.preventDefault();
+    var action = 'jobListingSearch'
+    var jobSearch = $('#jobSearch').val();
+    if(jobSearch != '') {
+      $.ajax({
+        type: "POST",
+        url: "webadmin/classes/process.php?action=searchJobListings",
+        data: { 
+          action:action,
+          jobSearch:jobSearch
+        },
+        success: function (response) {
+          // alert(response);
+          $('.job-block').html(response);
+        }
+      });
+    }
+  });
+
+  $('#jobLocation').keyup(function (e) { 
+    e.preventDefault();
+    var action = 'jobListingLocation'
+    var jobLocation = $('#jobLocation').val();
+    if(jobLocation != '') {
+      $.ajax({
+        type: "POST",
+        url: "webadmin/classes/process.php?action=searchJobLocation",
+        data: { 
+          action:action,
+          jobLocation:jobLocation
+        },
+        success: function (response) {
+          // alert(response);
+          $('.job-block').html(response);
+        }
+      });
+    }
+  });
+
   $(document).on("click", ".parti_details", "#detailsModal", function (e) {
     e.preventDefault();
     $("#detailsModal").modal("show");
@@ -366,6 +410,8 @@ $(document).ready(function () {
       },
     });
   });
+
+
 
   // Delete Agenda
   confirmDelete("delete-agenda", "deleteAgendaModal", "deleteModalId");
@@ -415,6 +461,18 @@ function confirmDelete(deleteTrashButton, deleteNameModal, deleteModalInputID) {
       $("#" + deleteModalInputID).val(id);
     }
   );
+}
+
+function getJobsListings() {
+    var jobListings;
+    $.ajax({
+      type: "POST",
+      url: "webadmin/classes/process.php?action=getJobListings",
+      data: { 'jobListings':jobListings },
+      success: function (response) {
+        $('.job-block').html(response);
+      }
+    });
 }
 
 $(document).ready(function () {

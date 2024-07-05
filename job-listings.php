@@ -58,7 +58,7 @@ $allJobListings = $jobListing->getJobsListingsStatus();
                         <div class="filter-block">
                             <h4>Search by Keywords</h4>
                             <div class="form-group">
-                                <input type="text" name="listing-search" placeholder="Job title, keywords, or company">
+                                <input type="text" name="jobSearch" id="jobSearch" placeholder="Job title, keywords, or company">
                                 <span class="icon flaticon-search-3"></span>
                             </div>
                         </div>
@@ -67,15 +67,8 @@ $allJobListings = $jobListing->getJobsListingsStatus();
                         <div class="filter-block">
                             <h4>Location</h4>
                             <div class="form-group">
-                                <input type="text" name="listing-search" placeholder="City or postcode">
+                                <input type="text" name="jobLocation" id="jobLocation" placeholder="City or postcode">
                                 <span class="icon flaticon-map-locator"></span>
-                            </div>
-                            <p>Radius around selected destination</p>
-                            <div class="range-slider-one">
-                                <div class="area-range-slider"></div>
-                                <div class="input-outer">
-                                    <div class="amount-outer"><span class="area-amount"></span>km</div>
-                                </div>
                             </div>
                         </div>
 
@@ -199,9 +192,6 @@ $allJobListings = $jobListing->getJobsListingsStatus();
                                     <input id="check-be" type="checkbox" name="check">
                                     <label for="check-be">Mid-Senior level4</label>
                                 </li>
-                                <li>
-                                    <button class="view-more"><span class="icon flaticon-plus"></span> View More</button>
-                                </li>
                             </ul>
                         </div>
 
@@ -223,17 +213,6 @@ $allJobListings = $jobListing->getJobsListingsStatus();
                         </div>
 
                         <!-- Filter Block -->
-                        <div class="filter-block">
-                            <h4>Tags</h4>
-                            <ul class="tags-style-one">
-                                <li><a href="#">app</a></li>
-                                <li><a href="#">administrative</a></li>
-                                <li><a href="#">android</a></li>
-                                <li><a href="#">wordpress</a></li>
-                                <li><a href="#">design</a></li>
-                                <li><a href="#">react</a></li>
-                            </ul>
-                        </div>
                     </div>
 
                     <!-- Call To Action -->
@@ -278,38 +257,9 @@ $allJobListings = $jobListing->getJobsListingsStatus();
                         </div>
                     </div>
 
-                    <?php
-                    if ($allJobListings != null) {
-                        foreach ($allJobListings as $jobListing) {
-                    ?>
-
-                            <!-- Job Block -->
-                            <div class="job-block">
-                                <div class="inner-box">
-                                    <div class="content">
-                                        <span class="company-logo"><img src="webadmin/images/job-listings/<?= $jobListing['image'] ?? 'default.png' ?>" alt="<?= $jobListing['title'] ?>"></span>
-                                        <h4><a href="job-description.php?devJob=<?= $jobListing['slug'] ?>"><?= $jobListing['title'] ?></a></h4>
-                                        <ul class="job-info">
-                                            <li><span class="icon flaticon-briefcase"></span> <?= $jobListing['career_level'] ?></li>
-                                            <li><span class="icon flaticon-map-locator"></span> <?= $jobListing['location'] ?></li>
-                                            <li><span class="icon flaticon-clock-3"></span> 11 hours ago</li>
-                                            <?php if ($jobListing['salary'] != '0') : ?>
-                                                <li><span class="icon flaticon-money"></span> $<?= $jobListing['salary'] ?></li>
-                                            <?php endif; ?>
-                                        </ul>
-                                        <ul class="job-other-info">
-                                            <li class="time"><?= $jobListing['job_type'] ?></li>
-                                            <!-- <li class="privacy">Private</li>
-                                            <li class="required">Urgent</li> -->
-                                        </ul>
-                                        <button class="bookmark-btn"><span class="flaticon-bookmark"></span></button>
-                                    </div>
-                                </div>
-                            </div>
-                    <?php
-                        }
-                    }
-                    ?>
+                    <div class="job-block">
+                        <!-- Ajax Display -->
+                    </div>
 
 
                     <!-- Listing Show More -->
