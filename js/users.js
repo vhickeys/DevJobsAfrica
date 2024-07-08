@@ -165,6 +165,7 @@ $(document).ready(function () {
     let jobSeeker_password = $("#jobSeeker_password").val();
     let jobSeeker_pwdRep = $("#jobSeeker_pwdRep").val();
     let jobSeeker_role = $("#jobSeeker_role").val();
+    let jobID = $("#jobID").val() ?? '';
 
     if (jobSeeker_name == "") {
       var alertDisplay = jobAlertError("Your full name is required!");
@@ -208,15 +209,22 @@ $(document).ready(function () {
           'jobSeeker_password': jobSeeker_password,
           'jobSeeker_pwdRep': jobSeeker_pwdRep,
           'jobSeeker_role': jobSeeker_role,
+          'jobID': jobID,
         },
         success: function (response) {
           var alertDisplay = jobAlertSuccess(response);
           $("#jobSeekerAlert").html(alertDisplay);
           $("#jobSeekerAlert").show();
           $("#jobSeekerAlert").fadeOut(5000);
-          setTimeout(function() {
-            window.location.href = "login.php";
-        }, 3000);
+          if (jobID != '') {
+            setTimeout(function() {
+                window.location.href = `login.php?jobID=${jobID}`;
+            }, 3000);
+        } else {
+            setTimeout(function() {
+                window.location.href = "login.php";
+            }, 3000);
+        }
         },
       });
     }
@@ -229,6 +237,7 @@ $(document).ready(function () {
 
     let userEmail = $("#userEmail").val();
     let userPassword = $("#userPassword").val();
+    let jobID = $("#jobID").val() ?? '';
 
     if (userEmail == "") {
       var alertDisplay = jobAlertError("Please enter your Email");
@@ -252,6 +261,7 @@ $(document).ready(function () {
         data: {
           'userEmail': userEmail,
           'userPassword': userPassword,
+          'jobID': jobID,
         },
         dataType: "json",
 
@@ -316,9 +326,15 @@ $(document).ready(function () {
                     $("#jobLoginAlert").html(alertDisplay);
                     $("#jobLoginAlert").show();
                     $("#jobLoginAlert").fadeOut(5000);
-                    setTimeout(function() {
-                      window.location.href = "dashboard/index.php";
-                    }, 3000);
+                    if (response.data.jobID != '') {
+                      setTimeout(function() {
+                        window.location.href = "dashboard/applied-jobs.php";
+                      }, 3000);
+                    } else {
+                      setTimeout(function() {
+                        window.location.href = "dashboard/index.php";
+                      }, 3000);
+                  }
                   break;
 
                 default:

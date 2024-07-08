@@ -83,7 +83,7 @@ class JobUser
         }
     }
 
-    public function registerJobSeeker($jobSeeker_name, $jobSeeker_email, $jobSeeker_password, $jobSeeker_role)
+    public function registerJobSeeker($jobSeeker_name, $jobSeeker_email, $jobSeeker_password, $jobSeeker_role, $jobID)
     {
 
         $token = generateToken(32);
@@ -108,7 +108,11 @@ class JobUser
             $statement->bindParam(5, $jobSeeker_role, PDO::PARAM_STR);
             $statement->execute();
 
-            // $userId = $this->db->lastInsertId();
+            $userId = $this->db->lastInsertId();
+
+            if ($jobID != '') {
+                $this->createAppliedJob($userId, $jobID);
+            }
 
             if ($statement) {
                 // welcomeMail("support@coinhabor.com", $email, $fullname);
@@ -119,7 +123,7 @@ class JobUser
         }
     }
 
-    public function loginJobUser($email, $password)
+    public function loginJobUser($email, $password, $jobID)
     {
         $checkSql = "SELECT * FROM job_users WHERE email=?";
         $statement = $this->db->prepare($checkSql);
@@ -165,6 +169,7 @@ class JobUser
                         'token' => $loginResult['token'],
                         'fullName' => $loginResult['fullname'],
                         'role' => $loginResult['role'],
+                        'jobID' => $jobID,
                         'interaction' => "",
                     ],
                 ];
@@ -173,6 +178,14 @@ class JobUser
                 echo $json;
             }
         }
+    }
+
+    public function createAppliedJob($job_userId, $job_id) {
+        $sql = "INSERT into applied_jobs (job_userId, job_id) values (?,?)";
+        $statement = $this->db->prepare($sql);
+        $statement->bindParam(1, $job_userId, PDO::PARAM_INT);
+        $statement->bindParam(2, $job_id, PDO::PARAM_INT);
+        $statement->execute();
     }
 
     public function logoutUser()

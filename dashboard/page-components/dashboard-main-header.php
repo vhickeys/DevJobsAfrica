@@ -24,8 +24,8 @@
                         <a href="../about.php">About</a>
                     </li>
 
-                    <li class="<?= setCurrentPage($current_page, 'job-list.php'); ?>">
-                        <a href="../job-list.php">Find Jobs</a>
+                    <li class="<?= setCurrentPage($current_page, 'job-listings.php'); ?>">
+                        <a href="../job-listings.php">Find Jobs</a>
                     </li>
 
                     <?php if (($_SESSION['user_data']['role'] == 'consultant') || ($_SESSION['user_data']['role'] == 'jobSeeker')): ?>

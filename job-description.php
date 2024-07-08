@@ -50,7 +50,12 @@ $jobContent = $jobListing->getJobContent($devJob);
                                 <p class="text mb15"><?= date('d M, Y', strtotime($jobContent['deadline'])) ?></p>
                             </div>
                             <div class="btn-box justify-content-lg-end mb-0">
-                                <a href="#" class="theme-btn btn-style-one w-100">Apply For Job <i class="fal fa-long-arrow-right ms-3"></i></a>
+
+                                <?php if (!isset($_SESSION['user_data']['fullName']) && !isset($_SESSION['user_data']['email'])) : ?>
+                                    <a href="register.php?jobCategory=jobSeeker&jobID=<?= $jobContent['id'] ?>" class="theme-btn btn-style-one w-100">Apply For Job <i class="fal fa-long-arrow-right ms-3"></i></a>
+                                <?php else : ?>
+                                    <a href="dashboard/applied-jobs.php" class="theme-btn btn-style-one w-100">Apply For Job <i class="fal fa-long-arrow-right ms-3"></i></a>
+                                <?php endif ?>
                             </div>
                         </div>
                     </div>
@@ -65,7 +70,7 @@ $jobContent = $jobListing->getJobContent($devJob);
                 <div class="content-column col-lg-8 col-md-12 col-sm-12">
                     <div class="job-detail">
                         <h4 class="fz30 fw500">Description</h4>
-                        
+
                         <?= $jobContent['description'] ?>
 
                         <!-- <p class="text">As a Product Designer, you will work within a Product Delivery Team fused with UX, engineering, product and data talent. You will help the team design beautiful interfaces that solve business challenges for our clients. We work with a number of Tier 1 banks on building web-based applications for AML, KYC and Sanctions List management workflows. This role is ideal if you are looking to segue your career into the FinTech or Big Data arenas.</p>
@@ -133,58 +138,6 @@ $jobContent = $jobListing->getJobContent($devJob);
                                 <div class="content ps-0">
                                     <div class="d-sm-flex align-items-center">
                                         <figure class="image mb-sm-0"><img class="rounded-circle w60" src="images/resource/company-logo/3-1.png" alt=""></figure>
-                                        <div class="ms-0 ms-sm-3">
-                                            <h4 class="fz20 mb-0"><a href="#">Software Engineer (Android), Libraries</a></h4>
-                                            <p>by <span class="fw500 text">CreativeLayers</span> in Design & Creative</p>
-                                        </div>
-                                    </div>
-                                    <ul class="job-other-info d-sm-flex ms-0 at-jsv6 mt30">
-                                        <li class="time">Full Time</li>
-                                        <li class="time2">London, UK</li>
-                                        <li class="time2">11 hours ago</li>
-                                        <li class="time2">450 - $900/month</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Job Block -->
-                        <div class="job-block at-jsv6">
-                            <div class="inner-box">
-                                <div class="tags d-flex align-items-center">
-                                    <a class="far fa-crown" href="#"></a>
-                                    <a class="far fa-bolt" href="#"></a>
-                                    <a class="flaticon-bookmark" href="#"></a>
-                                </div>
-                                <div class="content ps-0">
-                                    <div class="d-sm-flex align-items-center">
-                                        <figure class="image mb-sm-0"><img class="rounded-circle w60" src="images/resource/company-logo/3-2.png" alt=""></figure>
-                                        <div class="ms-0 ms-sm-3">
-                                            <h4 class="fz20 mb-0"><a href="#">Software Engineer (Android), Libraries</a></h4>
-                                            <p>by <span class="fw500 text">CreativeLayers</span> in Design & Creative</p>
-                                        </div>
-                                    </div>
-                                    <ul class="job-other-info d-sm-flex ms-0 at-jsv6 mt30">
-                                        <li class="time">Full Time</li>
-                                        <li class="time2">London, UK</li>
-                                        <li class="time2">11 hours ago</li>
-                                        <li class="time2">450 - $900/month</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Job Block -->
-                        <div class="job-block at-jsv6">
-                            <div class="inner-box">
-                                <div class="tags d-flex align-items-center">
-                                    <a class="far fa-crown" href="#"></a>
-                                    <a class="far fa-bolt" href="#"></a>
-                                    <a class="flaticon-bookmark" href="#"></a>
-                                </div>
-                                <div class="content ps-0">
-                                    <div class="d-sm-flex align-items-center">
-                                        <figure class="image mb-sm-0"><img class="rounded-circle w60" src="images/resource/company-logo/3-4.png" alt=""></figure>
                                         <div class="ms-0 ms-sm-3">
                                             <h4 class="fz20 mb-0"><a href="#">Software Engineer (Android), Libraries</a></h4>
                                             <p>by <span class="fw500 text">CreativeLayers</span> in Design & Creative</p>

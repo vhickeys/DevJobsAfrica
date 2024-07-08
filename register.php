@@ -267,6 +267,10 @@ include_once 'page-components/header.php';
 
                             <input type="hidden" id="jobSeeker_role" name="jobSeeker_role" value="<?= $_GET['jobCategory'] ?>">
 
+                            <?php if (isset($_GET['jobID']) && $_GET['jobID'] != '') : ?>
+                                <input type="hidden" id="jobID" name="jobID" value="<?= $_GET['jobID'] ?>">
+                            <?php endif; ?>
+
                             <div class="form-group">
                                 <button class="theme-btn btn-style-one" type="submit" id="regJobSeeker" name="regJobSeeker">Register</button>
                             </div>

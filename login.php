@@ -66,7 +66,7 @@ include_once 'page-components/header.php';
                 <h3>Login to Dev Jobs Africa</h3>
                 <!--Login Form-->
                 <form>
-                    
+
                     <?php include_once 'page-components/alert-messages.php' ?>
 
                     <div id="jobLoginAlert">
@@ -81,6 +81,10 @@ include_once 'page-components/header.php';
                         <label>Password</label>
                         <input id="userPassword" type="password" name="password" value="" placeholder="Enter Password">
                     </div>
+
+                    <?php if (isset($_GET['jobID']) && $_GET['jobID'] != '') : ?>
+                        <input type="hidden" id="jobID" name="jobID" value="<?= $_GET['jobID'] ?>">
+                    <?php endif; ?>
 
                     <div class="form-group">
                         <div class="field-outer">

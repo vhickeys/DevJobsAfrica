@@ -70,8 +70,9 @@ if (isset($_GET['action'])) {
                 $jobSeeker_email = $_POST['jobSeeker_email'];
                 $jobSeeker_password = $_POST['jobSeeker_password'];
                 $jobSeeker_role = $_POST['jobSeeker_role'];
+                $jobID = $_POST['jobID'] ?? '';
 
-                $jobUser->registerJobSeeker($jobSeeker_name, $jobSeeker_email, $jobSeeker_password, $jobSeeker_role);
+                $jobUser->registerJobSeeker($jobSeeker_name, $jobSeeker_email, $jobSeeker_password, $jobSeeker_role, $jobID);
             }
             break;
 
@@ -79,8 +80,9 @@ if (isset($_GET['action'])) {
             if (isset($_POST)) {
                 $userEmail = $_POST['userEmail'];
                 $userPassword = $_POST['userPassword'];
+                $jobID = $_POST['jobID'] ?? '';
 
-                $jobUser->loginJobUser($userEmail, $userPassword);
+                $jobUser->loginJobUser($userEmail, $userPassword, $jobID);
             }
             break;
 
