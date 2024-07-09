@@ -1,1 +1,4 @@
 [0709/191242.362:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0709/191247.868:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0709/191252.883:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[0709/192723.640:ERROR:media_internals.cc(112)] Cannot get RenderProcessHost
