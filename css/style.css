@@ -9892,7 +9892,7 @@ Preloader
   margin-top: -25px;
   background-position: center center;
   background-repeat: no-repeat;
-  background-image: url(../images/favicon.png);
+  background-image: url(../images/devjobsfav/favicon.ico);
   content: "";
 }
 
@@ -18116,7 +18116,7 @@ Product Tabs
 }
 
 .banner-section.-type-13 {
-  background-image: url("../images/index-13/header/test.png");
+  background-image: url("../images/home-banner.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -20430,7 +20430,7 @@ Banner Section
   top: 0;
   height: 100%;
   width: 100%;
-  background-image: url(../images/icons/bg-2.png);
+  background-image: url(../images/findJobs-banner.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

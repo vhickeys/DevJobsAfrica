@@ -10,8 +10,11 @@
   <link href="css/style.css" rel="stylesheet">
   <link href="css/responsive.css" rel="stylesheet">
 
-  <!-- <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
-  <link rel="icon" href="images/favicon.png" type="image/x-icon"> -->
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="images/devjobsfav/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/devjobsfav/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/devjobsfav/favicon-16x16.png">
+  <link rel="manifest" href="images/devjobsfav/site.webmanifest">
 
   <!-- Responsive -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge">

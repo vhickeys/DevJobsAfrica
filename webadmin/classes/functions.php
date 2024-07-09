@@ -55,6 +55,12 @@ function authCheck()
         $_SESSION['message'] = "You are not authorized to access this page. Not an Admin!";
         header("location: ../index.php");
         exit(0);
+    } else if ($_SESSION['user_data']['role'] == "jobSeeker" || $_SESSION['user_data']['role'] == "consultant" || $_SESSION['user_data']['role'] == "employer") {
+        $_SESSION['message'] = "You are not authorized to access this page. Not an Admin!";
+        session_unset();
+        session_destroy();
+        header("location: login.php");
+        exit(0);
     }
 };
 function authCheckUser()
@@ -68,6 +74,12 @@ function authCheckUser()
     } else if ($userAccess == "1") {
         $_SESSION['message'] = "Your account has been suspended! Please contact admin";
         header("location: ./login.php");
+        exit(0);
+    } else if ($_SESSION['user_data']['role'] == "jobSeeker" || $_SESSION['user_data']['role'] == "consultant" || $_SESSION['user_data']['role'] == "employer") {
+        $_SESSION['message'] = "You are not authorized to access this page. Not an Admin!";
+        session_unset();
+        session_destroy();
+        header("location: login.php");
         exit(0);
     }
 };
@@ -87,6 +99,12 @@ function authCheckUserBySlug($slug, $page)
     } else if (!isset($slug) || ($slug == "")) {
         $_SESSION['errorMessage'] = "You are not authorized to access this page! No Event ID Found.";
         header("location: $page.php");
+        exit(0);
+    } else if ($_SESSION['user_data']['role'] == "jobSeeker" || $_SESSION['user_data']['role'] == "consultant" || $_SESSION['user_data']['role'] == "employer") {
+        $_SESSION['message'] = "You are not authorized to access this page. Not an Admin!";
+        session_unset();
+        session_destroy();
+        header("location: login.php");
         exit(0);
     }
 };
@@ -111,6 +129,12 @@ function authCheckById($id, $page)
         $_SESSION['errorMessage'] = "You are not authorized to access this page! No ID Found.";
         header("location: $page.php");
         exit(0);
+    } else if ($_SESSION['user_data']['role'] == "jobSeeker" || $_SESSION['user_data']['role'] == "consultant" || $_SESSION['user_data']['role'] == "employer") {
+        $_SESSION['message'] = "You are not authorized to access this page. Not an Admin!";
+        session_unset();
+        session_destroy();
+        header("location: login.php");
+        exit(0);
     }
 };
 
@@ -133,6 +157,12 @@ function adminAuth()
     } else if ($_SESSION['user_data']['role'] == "1") {
         $_SESSION['message'] = "You are not authorized to access this page. Not a Super Admin!";
         header("location: index.php");
+        exit(0);
+    } else if ($_SESSION['user_data']['role'] == "jobSeeker" || $_SESSION['user_data']['role'] == "consultant" || $_SESSION['user_data']['role'] == "employer") {
+        $_SESSION['message'] = "You are not authorized to access this page. Not an Admin!";
+        session_unset();
+        session_destroy();
+        header("location: login.php");
         exit(0);
     }
 }
@@ -170,7 +200,7 @@ function authRoleCheckJobUser($role, $redirectPage1, $redirectPage2, $message)
         $_SESSION['jobUserWarningMessage'] = $message;
         header("location: $redirectPage2.php");
         exit(0);
-    }
+    } 
 };
 
 // End Job Dashboard Authorization Checks

@@ -17,11 +17,12 @@
 
     <!-- PAGE TITLE HERE -->
     <title><?php echo $title ?? "Dev Jobs Africa Admin" ?> | Dev Jobs Africa</title>
+
     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="../img/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon/favicon-16x16.png">
-    <link rel="manifest" href="../img/favicon/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/devjobsfav/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/devjobsfav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/devjobsfav/favicon-16x16.png">
+    <link rel="manifest" href="../images/devjobsfav/site.webmanifest">
 
     <link href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
     <link href="vendor/swiper/css/swiper-bundle.min.css" rel="stylesheet">

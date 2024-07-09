@@ -24,12 +24,6 @@ include_once 'page-components/main-header.php';
                     </div>
                 </div>
             </div>
-
-            <div class="image-column col-lg-5 col-md-12">
-                <div class="image-box">
-                    <figure class="main-image anm" data-wow-delay="1000ms" data-speed-x="2" data-speed-y="2"><img src="images/resource/banner-img-2.png" alt=""></figure>
-                </div>
-            </div>
         </div>
     </div>
 </section>
