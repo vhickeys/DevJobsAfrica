@@ -12,7 +12,7 @@ class Database
     // private $hostname = "localhost";
     // private $username = "devjobsafrica_user";
     // private $password = "devjobsafrica@2024";
-    // private $dbname = "devjobsafrica";
+    // private $dbname = "devjobsafrica_db";
     private $conn;
 
 
