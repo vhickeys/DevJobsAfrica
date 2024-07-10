@@ -3,6 +3,11 @@
 
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="author" content="DevJobs Africa" />
+  <meta name="description" content="This platform acts as a bridge between organizations seeking talented individuals and professionals looking for rewarding employment opportunities in the development sector. | DevJobs Africa" />
+
   <title><?= $page_title ?? 'Dev Jobs Africa' ?> | Dev Jobs Africa</title>
 
   <!-- Stylesheets -->
