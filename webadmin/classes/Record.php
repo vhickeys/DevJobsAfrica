@@ -147,4 +147,18 @@ class Record
             return $result = null;
         }
     }
+
+    public function countByCondition($table, $column, $data, $orderColumn, $order)
+    {
+        $sql = "SELECT * FROM $table WHERE $column=? ORDER by $orderColumn $order";
+        $statement = $this->db->prepare($sql);
+        $statement->execute([$data]);
+        $result = $statement->rowCount();
+
+        if ($result != null) {
+            return $result;
+        } else {
+            return $result = null;
+        }
+    }
 }

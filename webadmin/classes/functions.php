@@ -200,7 +200,7 @@ function authRoleCheckJobUser($role, $redirectPage1, $redirectPage2, $message)
         $_SESSION['jobUserWarningMessage'] = $message;
         header("location: $redirectPage2.php");
         exit(0);
-    } 
+    }
 };
 
 // End Job Dashboard Authorization Checks
@@ -227,6 +227,31 @@ function pageCheckBySlug($slug, $page)
         $_SESSION['errorMessage'] = "You are not authorized to access this page!";
         header("location: $page.php");
         exit(0);
+    }
+}
+
+function get_time_ago($time)
+{
+    $time_difference = (time() - $time);
+
+    if ($time_difference < 1) {
+        return 'less than 1 second ago';
+    }
+    $condition = array(
+        12 * 30 * 24 * 60 * 60 => 'year',
+        30 * 24 * 60 * 60 => 'month',
+        24 * 60 * 60 => 'day',
+        60 * 60 => 'hour',
+        60 => 'minute',
+        1 => 'second'
+    );
+    foreach ($condition as $secs => $str) {
+        $d = $time_difference / $secs;
+
+        if ($d >= 1) {
+            $t = round($d);
+            return $t . ' ' . $str . ($t > 1 ? 's' : '') . ' ago';
+        }
     }
 }
 

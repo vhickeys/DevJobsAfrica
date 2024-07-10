@@ -13,7 +13,7 @@ include_once 'page-components/header.php';
             <div class="nav-outer">
                 <div class="logo-box">
                     <div class="logo"><a href="index.php">
-                            <img src="images/devjobsafrica_logo.png" width="20%" alt="DevJobsAfrica Logo">
+                            <img src="images/devjobs-var3.png" width="20%" alt="DevJobsAfrica Logo">
                         </a>
                     </div>
                 </div>
@@ -31,8 +31,8 @@ include_once 'page-components/header.php';
 
     <!-- Mobile Header -->
     <div class="mobile-header">
-        <div class="logo"><a href="index.html">
-                <img src="images/devjobsafrica_logo.png" width="50" alt="DevJobsAfrica Logo">
+        <div class="logo"><a href="index.php">
+                <img src="images/devjobs-var3.png" width="50" alt="DevJobsAfrica Logo">
         </div>
 
         <!--Nav Box-->
@@ -41,7 +41,7 @@ include_once 'page-components/header.php';
             <div class="outer-box">
                 <!-- Login/Register -->
                 <div class="login-box">
-                    <a href="login-popup.html" class="call-modal"><span class="icon-user"></span></a>
+                    <a href="login.php" class="call-modal"><span class="icon-user"></span></a>
                 </div>
 
                 <a href="#nav-mobile" class="mobile-nav-toggler navbar-trigger"><span class="flaticon-menu-1"></span></a>

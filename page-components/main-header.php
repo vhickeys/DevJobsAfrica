@@ -6,7 +6,7 @@
             <div class="nav-outer">
                 <div class="logo-box">
                     <div class="logo"><a href="index.php">
-                            <img src="images/devjobsafrica_logo.png" width="20%" alt="DevJobsAfrica Logo">
+                            <img src="images/devjobs-var2.png" width="30%" alt="DevJobsAfrica Logo">
                         </a></div>
                 </div>
 
@@ -107,7 +107,7 @@
 
                         <!-- Only for Mobile View -->
                         <li class="mm-add-listing">
-                            <a href="add-listing.html" class="theme-btn btn-style-one">Job Post</a>
+                            <a href="register.php?jobCategory=employer" class="theme-btn btn-style-one">Job Post</a>
                             <span>
                                 <span class="contact-info">
                                     <span class="phone-num"><span>Call us</span><a href="tel:1234567890">123 456 7890</a></span>
@@ -139,7 +139,7 @@
         <!-- Mobile Header -->
         <div class="mobile-header">
             <div class="logo"><a href="index.php">
-                    <img src="images/devjobsafrica_logo.png" width="50" alt="DevJobsAfrica Logo">
+                    <img src="images/devjobs-var3.png" width="50" alt="DevJobsAfrica Logo">
                 </a></div>
 
             <!--Nav Box-->

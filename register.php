@@ -16,7 +16,7 @@ include_once 'page-components/header.php';
             <div class="nav-outer">
                 <div class="logo-box">
                     <div class="logo"><a href="index.php">
-                            <img src="images/devjobsafrica_logo.png" width="20%" alt="DevJobsAfrica Logo">
+                            <img src="images/devjobs-var3.png" width="20%" alt="DevJobsAfrica Logo">
                         </a></div>
                 </div>
             </div>
@@ -34,7 +34,7 @@ include_once 'page-components/header.php';
     <!-- Mobile Header -->
     <div class="mobile-header">
         <div class="logo"><a href="index.php">
-                <img src="images/devjobsafrica_logo.png" width="50" alt="DevJobsAfrica Logo">
+                <img src="images/devjobs-var3.png" width="50" alt="DevJobsAfrica Logo">
         </div>
 
         <!--Nav Box-->

@@ -2363,7 +2363,7 @@ Buttons Styles
   text-align: center;
   white-space: nowrap;
   color: #ffffff;
-  background-color: #1967D2;
+  background-color: #f7912f;
   font-size: 15px;
   line-height: 20px;
   border-radius: 8px;
@@ -2377,7 +2377,7 @@ Buttons Styles
 
 .btn-style-one:hover {
   color: #ffffff;
-  background-color: #0146A6;
+  background-color: #df7a1c;
 }
 
 /* Btn Style Two */
@@ -2404,7 +2404,7 @@ Buttons Styles
   position: relative;
   text-align: center;
   white-space: nowrap;
-  color: #1967D2;
+  color: #f7912f;
   background-color: #E2EAF8;
   font-size: 15px;
   line-height: 20px;
@@ -2415,7 +2415,7 @@ Buttons Styles
 
 .btn-style-three:hover {
   color: #FFFFFF;
-  background-color: #1967D2;
+  background-color: #db7e27;
 }
 
 /* Btn Style Four */
@@ -2907,13 +2907,13 @@ Top Companies
 }
 .company-block.at-home20 .btn-style-three{
   border-radius: 18px;
-  border: 1px solid #1967D2;
+  border: 1px solid #f7912f;
   background-color: #F5F7FC;
 }
 .company-block.at-home20:hover .btn-style-three{
   border-radius: 18px;
-  border: 1px solid #1967D2;
-  background-color: #1967D2;
+  border: 1px solid #f7912f;
+  background-color: #d67b26;
   color: #fff;
 }
 .company-block .inner-box.bg-clr-1 {

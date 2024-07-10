@@ -7,7 +7,7 @@
                     <div class="big-column col-xl-4 col-lg-3 col-md-12">
                         <div class="footer-column about-widget">
                             <div class="logo"><a href="index.php">
-                                    <h4 class="fw-bold text-dark">Dev Jobs Africa</h4>
+                                    <img src="images/devjobsafrica_logo.png" width="20%" alt="DevJobsAfrica Logo">
                                 </a></div>
                             <p class="phone-num"><span>Call us </span><a href="thebeehost%40support.html">123 456 7890</a></p>
                             <p class="address">329 Queensberry Street, North Melbourne VIC<br> 3051, Australia. <br><a href="mailto:support@superio.com" class="email">support@devjobsafrica.com</a></p>
